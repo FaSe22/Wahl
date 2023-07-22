@@ -1,0 +1,22 @@
+/* CSS for pie chart hover effect */
+#myPieChart {
+    cursor: pointer;
+}
+
+/* Styles for the chart segments on hover */
+#myPieChart:hover {
+    transition: transform 0.2s;
+}
+
+/* Styles for the hovered segment */
+#myPieChart .chartjs-render-monitor:hover {
+    transform: scale(1.08); /* Increase the scale for a more pronounced effect */
+    transition: transform 0.2s ease-out; /* Add a smoother transition for the hover effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increase the shadow for a stronger sense of depth */
+}
+
+/* Remove default outline on hover (optional, for better visual appearance) */
+#myPieChart .chartjs-render-monitor:hover:focus {
+    outline: none;
+}
+

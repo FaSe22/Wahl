@@ -1,0 +1,25 @@
+{
+    "name": "sebastianfaber/wahl",
+    "description": "Show election results",
+    "require-dev": {
+        "pestphp/pest": "^2.9"
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Sebastianfaber\\Wahl\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sebastian",
+            "email": "fase22290@icloud.com"
+        }
+    ],
+    "require": {},
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": false
+        }
+    }
+}
