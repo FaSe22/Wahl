@@ -16,13 +16,6 @@
             <a href="#table">Tabelle</a>
         </nav>
 
-        <div class="sidebar">
-            <div class="sidebar-chart">
-                <!-- Place the pie chart here -->
-                <canvas id="sidebarPieChart" width="100" height="100"></canvas>
-            </div>
-            <!-- Other sidebar content goes here -->
-        </div>
 
         <main>
             <div class="card">
@@ -58,41 +51,6 @@
             </div>
         </main>
     </div>
-
-    <!-- JavaScript for the sidebar pie chart -->
-   <script src="../../../node_modules/chart.js/dist/chart.umd.js"></script>
-
-    <script>
-        // Replace this with your data and chart configuration
-        var sidebarData = [25, 30, 15, 10, 5, 15];
-        var sidebarLabels = ['CDU', 'SPD', 'GRUENE', 'DIE_LINKE', 'AFD', 'FDP'];
-
-        var partyColors = [
-            '#000000', // CDU (Schwarz)
-            '#E3000F', // SPD (Rot)
-            '#64A12D', // Die Grünen (Grün)
-            '#BE3075', // Die Linke (Violett)
-            '#009EE0', // AfD (Blau)
-            '#FFED00'  // FDP (Gelb)
-        ];
-        var ctxSidebar = document.getElementById('sidebarPieChart').getContext('2d');
-        var sidebarPieChart = new Chart(ctxSidebar, {
-            type: 'pie',
-            data: {
-                labels: sidebarLabels,
-                datasets: [{
-                    data: sidebarData,
-                    backgroundColor: partyColors, // Use the same colors from piechart.html
-                    borderColor: partyColors,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });
-    </script>
 </body>
 </html>
 
