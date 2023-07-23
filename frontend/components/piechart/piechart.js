@@ -1,12 +1,12 @@
 // AJAX-Anfrage, um die Daten aus PHP zu erhalten
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "../backend/balkendiagrammData.php", true);
+xhr.open("GET", "../../../backend/piechartData.php", true);
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
         var data = JSON.parse(xhr.responseText);
         console.log(data); // Log the received data to the console
 
-        // Daten für das Balkendiagramm vorbereiten
+        // Daten für das Pie Chart vorbereiten
         var parties = ['CDU', 'SPD', 'GRUENE', 'DIE_LINKE', 'AFD', 'FDP'];
         var votes = parties.map(party => data[0][party]);
 
@@ -20,10 +20,10 @@ xhr.onreadystatechange = function() {
             '#FFED00'  // FDP (Gelb)
         ];
 
-        // Balkendiagramm erstellen
-        var ctx = document.getElementById('myBarChart').getContext('2d');
-        var myBarChart = new Chart(ctx, {
-            type: 'bar',
+        // Pie Chart erstellen
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
             data: {
                 labels: parties,
                 datasets: [{
@@ -35,12 +35,7 @@ xhr.onreadystatechange = function() {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+                maintainAspectRatio: false
             }
         });
     }
