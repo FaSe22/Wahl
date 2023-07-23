@@ -1,16 +1,7 @@
 <?php
-require_once 'DB.php';
+require_once 'Connection.php';
 
-// Replace these variables with your actual database credentials
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$dbName = 'wahl';
-
-// Create a new instance of the DB class and connect to the database
-$db = new DB($host, $username, $password, $dbName);
-$db->connect();
-$conn = $db->getConn();
+$conn = (new Connection())->getConnection();
 
 // Prepare and execute the query to fetch data
 $query = "SELECT * FROM elections where Kreis = 'Land Baden-Württemberg'";
