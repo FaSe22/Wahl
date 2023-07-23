@@ -32,6 +32,10 @@
                     style: {
                         color: 'black', // Border color
                         weight: 0.5,     // Border weight
+                    },
+                    onEachFeature: function(feature, layer) {
+                        // Add the name of the Stadt- or Landkreis to the map as a popup
+                        layer.bindPopup(feature.properties.NAME_3);
                     }
                 }).addTo(map);
             })
