@@ -1,19 +1,19 @@
 <?php
 
+// Funktion zum Parsen einer CSV-Datei
 function parseCSVFile($filePath)
 {
     $data = array();
     $file = fopen($filePath, 'r');
 
-    // Set character encoding to UTF-8
+    // Zeichenkodierung auf UTF-8 setzen
     stream_filter_append($file, 'convert.iconv.ISO-8859-1/UTF-8');
 
+    $header = fgetcsv($file, 0, ';'); // Lese die Kopfzeile
 
-    $header = fgetcsv($file, 0, ';'); // Read the header row
-
-    // Replace special characters, umlauts, and spaces in the header
+    // Ersetze Sonderzeichen, Umlaute und Leerzeichen in der Kopfzeile
     $header = array_map(function ($column) {
-        $column = str_replace(['(', ')', '/', '§', 'ß','.'], '', $column);
+        $column = str_replace(['(', ')', '/', '§', 'ß', '.'], '', $column);
         $column = strtr($column, ['ä' => 'ae', 'ö' => 'oe', 'ü' => 'ue', 'Ä' => 'Ae', 'Ö' => 'Oe', 'Ü' => 'Ue']);
         $column = preg_replace('/[^A-Za-z0-9_]/', '_', $column);
         return trim($column, "_");
@@ -28,7 +28,7 @@ function parseCSVFile($filePath)
     return $data;
 }
 
-// Function to insert data into SQL table
+// Funktion zum Einfügen der Daten in eine SQL-Tabelle
 function insertDataIntoSQL($parsedData, $tableName, $dbConnection)
 {
     $columns = implode(', ', array_keys($parsedData[0]));
@@ -40,18 +40,18 @@ function insertDataIntoSQL($parsedData, $tableName, $dbConnection)
         try {
             $stmt->execute(array_values($row));
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage() . "\n";
-            print_r($row); // Print the problematic row for debugging
-            die(); // Stop execution to investigate the issue
+            echo "Fehler: " . $e->getMessage() . "\n";
+            print_r($row); // Gib die problematische Zeile zur Fehlerbehebung aus
+            die(); // Beende die Ausführung, um das Problem zu untersuchen
         }
     }
 }
 
-// Usage example:
+// Beispiel für die Verwendung:
 $csvFilePath = "data/Kreise.csv";
 $parsedData = parseCSVFile($csvFilePath);
 
-// Database configuration
+// Datenbankkonfiguration
 $host = 'localhost';
 $dbName = 'wahl';
 $username = 'root';
@@ -62,12 +62,12 @@ try {
     $dbConnection = new PDO("mysql:host=$host;dbname=$dbName", $username, $password);
     $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Call the function to insert data into the SQL table
+    // Funktion aufrufen, um die Daten in die SQL-Tabelle einzufügen
     insertDataIntoSQL($parsedData, $tableName, $dbConnection);
 
-    echo "Data inserted successfully into the $tableName table!";
+    echo "Daten erfolgreich in die Tabelle $tableName eingefügt!";
 } catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
+    echo "Fehler: " . $e->getMessage();
 }
 
 ?>

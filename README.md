@@ -2,43 +2,6 @@
 
 Beschreibung des Projekts (optional)
 
-## Verzeichnisstruktur
-
-```bash
-├── backend
-│   ├── Connection.php
-│   ├── DB.php
-│   ├── config
-│   │   └── database.php
-│   ├── getTableData.php
-│   └── piechartData.php
-├── composer.json
-├── composer.lock
-├── data
-│   ├── Kreise.csv
-│   ├── create_elections_table.sql
-│   └── kreise.geo.json
-├── frontend
-│   ├── components
-│   │   ├── barchart
-│   │   │   ├── balkendiagramm.html
-│   │   │   └── balkendiagramm.js
-│   │   ├── map
-│   │   │   └── map.html
-│   │   ├── piechart
-│   │   │   ├── piechart.css
-│   │   │   ├── piechart.html
-│   │   │   └── piechart.js
-│   │   └── table
-│   │       ├── table.html
-│   │       └── table.js
-│   ├── main.html
-│   ├── main.js
-│   └── styles.css
-├── index.php
-├── package-lock.json
-└── package.json
-```
 
 ## Beschreibung
 
