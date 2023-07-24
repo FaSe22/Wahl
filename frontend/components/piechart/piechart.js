@@ -4,7 +4,6 @@ xhr.open("GET", "../../../backend/piechartData.php", true);
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
         var data = JSON.parse(xhr.responseText);
-        console.log(data); // Log the received data to the console
 
         // Daten für das Pie Chart vorbereiten
         var parties = ['CDU', 'SPD', 'GRUENE', 'DIE_LINKE', 'AFD', 'FDP'];
