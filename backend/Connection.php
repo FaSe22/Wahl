@@ -10,10 +10,10 @@ class Connection
 
     public function __construct()
     {
-        // Include the database configuration file
+        // Datenbankkonfigurationsdatei einbinden
         $config = require 'config/database.php';
 
-        // Get the database credentials from the config
+        // Datenbank-Anmeldeinformationen aus der Konfiguration erhalten
         $this->host = $config['host'];
         $this->username = $config['username'];
         $this->password = $config['password'];
@@ -25,10 +25,10 @@ class Connection
         if (!$this->conn) {
             try {
                 $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbName}", $this->username, $this->password);
-                // Set the PDO error mode to exception
+                // PDO-Fehlermodus auf Ausnahme setzen
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
-                die("Connection failed: " . $e->getMessage());
+                die("Verbindung fehlgeschlagen: " . $e->getMessage());
             }
         }
         return $this->conn;
