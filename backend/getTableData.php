@@ -1,17 +1,18 @@
 <?php
 require_once 'Connection.php';
 
+// Verbindung zur Datenbank herstellen
 $conn = (new Connection())->getConnection();
 
-// Prepare and execute the query to fetch data
-$query = "SELECT * FROM elections where Kreis = 'Land Baden-Württemberg'";
+// Die Abfrage vorbereiten und ausführen, um Daten abzurufen
+$query = "SELECT * FROM elections WHERE Kreis = 'Land Baden-Württemberg'";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 
-// Fetch all rows as an associative array
+// Alle Zeilen als assoziatives Array abrufen
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Convert the data to JSON format and output it
+// Die Daten in das JSON-Format konvertieren und ausgeben
 echo json_encode($data);
 ?>
 
