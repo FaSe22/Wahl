@@ -47,7 +47,6 @@ function insertDataIntoSQL($parsedData, $tableName, $dbConnection)
     }
 }
 
-// Beispiel für die Verwendung:
 $csvFilePath = "data/Kreise.csv";
 $parsedData = parseCSVFile($csvFilePath);
 
