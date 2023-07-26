@@ -2,11 +2,11 @@
 
 class Connection
 {
-    private $host;
-    private $username;
-    private $password;
-    private $dbName;
-    private $conn;
+    private String $host;
+    private String $username;
+    private String $password;
+    private String $dbName;
+    private PDO $conn;
 
     public function __construct()
     {
@@ -20,9 +20,9 @@ class Connection
         $this->dbName = $config['dbName'];
     }
 
-    public function getConnection()
+    public function getConnection(): PDO
     {
-        if (!$this->conn) {
+        if (!isset($this->conn)) {
             try {
                 $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbName}", $this->username, $this->password);
                 // PDO-Fehlermodus auf Ausnahme setzen

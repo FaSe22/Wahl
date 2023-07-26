@@ -2,7 +2,7 @@
 
 // FUNKTIONEN
     // Funktion zum Parsen einer CSV-Datei
-    function parseCSVFile($filePath)
+    function parseCSVFile($filePath): array
     {
         $data = array();
         $file = fopen($filePath, 'r');
@@ -31,7 +31,7 @@
     
     // TODO: Hier die Connection.php aus dem Backend nutzen
     // Funktion zum Einfügen der Daten in eine SQL-Tabelle
-    function insertDataIntoSQL($parsedData, $tableName, $dbConnection)
+    function insertDataIntoSQL($parsedData, $tableName, $dbConnection): void
     {
         $columns = implode(', ', array_keys($parsedData[0]));
         $placeholders = rtrim(str_repeat('?, ', count($parsedData[0])), ', ');
@@ -42,28 +42,18 @@
             try {
                 $stmt->execute(array_values($row));
             } catch (PDOException $e) {
-                echo "Fehler: " . $e->getMessage() . "\n";
+                echo "Fehler: " . $e->getMessage() . PHP_EOL;
                 print_r($row); // Nur zum Debuggen. 
                 die(); 
             }
         }
+        echo "Daten erfolgreich importiert";
     }
 
 // PROGRAMMABLAUF
-$parsedData = parseCSVFile("data/Kreise.csv");
-
-try {
+    $parsedData = parseCSVFile("data/Kreise.csv");
     require_once 'backend/Connection.php';
-
-    // Verbindung zur Datenbank herstellen
     $conn = (new Connection())->getConnection();
-
-    // Funktion aufrufen, um die Daten in die SQL-Tabelle einzufügen
     insertDataIntoSQL($parsedData, 'elections', $conn);
-
-    echo "Daten erfolgreich in die Tabelle elections eingefügt!";
-} catch (PDOException $e) {
-    echo "Fehler: " . $e->getMessage();
-}
 ?>
 
