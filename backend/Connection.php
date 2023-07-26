@@ -24,7 +24,10 @@ class Connection
     {
         if (!isset($this->conn)) {
             try {
-                $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbName}", $this->username, $this->password);
+                $this->conn = new PDO(
+                    "mysql:host={$this->host};dbname={$this->dbName}",
+                    $this->username,
+                    $this->password);
                 // PDO-Fehlermodus auf Ausnahme setzen
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
