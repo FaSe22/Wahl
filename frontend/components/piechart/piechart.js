@@ -21,7 +21,7 @@ xhr.onreadystatechange = function() {
 
         // Pie Chart erstellen
         const ctx = document.getElementById('myPieChart').getContext('2d');
-        const myPieChart = new Chart(ctx, {
+        new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: parties,
