@@ -21,7 +21,7 @@ xhr.onreadystatechange = function() {
 
         // Balkendiagramm erstellen
         const ctx = document.getElementById('myBarChart').getContext('2d');
-        new Chart(ctx, {
+         const chart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: parties,
