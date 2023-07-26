@@ -1,7 +1,6 @@
-# Projektname (optional)
+# Wahl
 
-Beschreibung des Projekts (optional)
-
+Demo einer Wahlapp
 
 ## Beschreibung
 
@@ -15,10 +14,9 @@ Dabei werden die Daten in Echtzeit aktualisiert, wenn ein bestimmter Land- oder 
 ## Backend
 
 - `backend/Connection.php`: PHP-Datei für die Verbindung zur Datenbank.
-- `backend/DB.php`: PHP-Datei für die Datenbankabfragen und -operationen.
 - `backend/config/database.php`: Konfigurationsdatei für die Datenbankverbindung.
 - `backend/getTableData.php`: PHP-Datei zum Abrufen von Tabellendaten.
-- `backend/piechartData.php`: PHP-Datei zum Abrufen von Daten für das Kreisdiagramm.
+- `backend/piechartData.php`: PHP-Datei zum Abrufen von Daten für das Kreisdiagramm (und Balkendiagramm).
 
 ## Daten
 
@@ -38,15 +36,17 @@ Dabei werden die Daten in Echtzeit aktualisiert, wenn ein bestimmter Land- oder 
 
 ## Anleitung zur Verwendung
 
-Um das Projekt zu nutzen, müssen Sie sicherstellen, dass die erforderlichen Datenbankverbindungsdaten in der backend/config/database.php Datei korrekt eingestellt sind. Anschließend können Sie die Anwendung starten, indem Sie die main.html im Browser öffnen.
+### Voraussetzungen:
+SQL, PHP
 
-Die Karte zeigt die Land- und Stadtkreise von Baden-Württemberg an. Wenn Sie auf einen bestimmten Kreis auf der Karte klicken, werden die entsprechenden Daten für das Balken- und Kreisdiagramm sowie die Tabelle aktualisiert und angezeigt.
+### Starten des Projekts mit
+php -S localhost:8000
 
-Die Anwendung bietet eine intuitive Benutzeroberfläche, um die verschiedenen Diagramme zu interagieren und die Daten für ausgewählte Land- und Stadtkreise zu visualisieren.
+Dann localhost:8000 EINMAL!! aufrufen. Das führt dazu, dass die Daten aus der CSV Datei in die 
+SQL Datenbank geschrieben werden.
 
-## Autor
-
-Name des Autors (optional).
+Anschließend http://localhost:8000/frontend/main.html aufrufen
+Für die Karte http://localhost:8000/frontend/components/map/map.html aufrufen. 
 
 ## Lizenz
 
