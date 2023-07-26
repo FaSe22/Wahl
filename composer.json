@@ -1,9 +1,6 @@
 {
     "name": "sebastianfaber/wahl",
     "description": "Show election results",
-    "require-dev": {
-        "pestphp/pest": "^2.9"
-    },
     "license": "proprietary",
     "autoload": {
         "psr-4": {
