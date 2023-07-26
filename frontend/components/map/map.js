@@ -1,5 +1,3 @@
-// map.js
-
 // Erstelle eine Karte Baden-Württembergs, auf der die Landkreise zu sehen sind
 function createMap() {
     // Erstelle die Karte 
