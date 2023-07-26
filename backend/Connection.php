@@ -11,7 +11,7 @@ class Connection
     public function __construct()
     {
         // Datenbankkonfigurationsdatei einbinden
-        $config = require 'config/database.php';
+        $config = require_once 'config/database.php';
 
         // Datenbank-Anmeldeinformationen aus der Konfiguration erhalten
         $this->host = $config['host'];
