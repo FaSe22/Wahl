@@ -1,5 +1,5 @@
 {
-    "name": "sebastianfaber/wahl",
+    "name": "fase/wahl",
     "description": "Show election results",
     "license": "proprietary",
     "autoload": {
@@ -7,12 +7,6 @@
             "Sebastianfaber\\Wahl\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "Sebastian",
-            "email": "fase22290@icloud.com"
-        }
-    ],
     "require": {},
     "config": {
         "allow-plugins": {
