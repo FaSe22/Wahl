@@ -1,31 +1,34 @@
 // map.js
 
-// Function to create the map and load GeoJSON data
-function createMap() {
-    // Create the map
+// Erstelle eine Karte Baden-Württembergs, auf der die Landkreise zu sehen sind
+functios createMap() {
+    // Erstelle die Karte 
     var map = L.map('map', {
         center: [48.71, 9.10],
         zoom: 8,
-        zoomControl: false, // Disable zoom control
+        zoomControl: false, // Zoomen der Karte soll nicht möglich sein
     });
 
-    // Read the GeoJSON data from the file
+    // Lies die Daten aus der geo.json Datei,
+    // Filter: Nur die Daten für das Bundesland Baden-Württemberg
     fetch('../../../data/kreise.geo.json')
         .then(response => response.json())
         .then(data => {
-            // Filter the GeoJSON data for Baden-Württemberg (NAME_1 = "Baden-Württemberg")
+            // Filter die geo.json Daten nach Baden-Württemberg (NAME_1 = "Baden-Württemberg")
             var badenWurttembergData = data.features.filter(feature => feature.properties.NAME_1 === "Baden-Württemberg");
 
-            // Create a Leaflet GeoJSON layer for Baden-Württemberg and add it to the map
+            // Erstelle ein Leaflet geoJson Layer für die Baden-Württemberg Daten und
             L.geoJSON(badenWurttembergData, {
                 style: {
                     color: 'black', // Border color
                     weight: 0.5,     // Border weight
                 },
                 onEachFeature: function(feature, layer) {
-                    // Add the name of the Stadt- or Landkreis to the map as a popup
+                    // Füge dem Layer ein Popup, das die Stadt- oder Landkreisnamen anzeigt
+                    // hinzu (NAME_3 = {Landkreis})
                     layer.bindPopup(feature.properties.NAME_3);
                 }
+            // füge es der Karte hinzu
             }).addTo(map);
         })
         .catch(error => {
@@ -33,6 +36,6 @@ function createMap() {
         });
 }
 
-// Call the createMap function when the page has finished loading
+// Erstelle die Karte erst nach laden der Seite
 document.addEventListener('DOMContentLoaded', createMap);
 
