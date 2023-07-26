@@ -1,5 +1,5 @@
 // AJAX-Anfrage, um die Daten aus PHP zu erhalten
-var xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open("GET", "../../../backend/piechartData.php", true);
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
