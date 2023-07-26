@@ -3,14 +3,14 @@ var xhr = new XMLHttpRequest();
 xhr.open("GET", "../../../backend/piechartData.php", true);
 xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
-        var data = JSON.parse(xhr.responseText);
+        const data = JSON.parse(xhr.responseText);
 
         // Daten für das Balkendiagramm vorbereiten
-        var parties = ['CDU', 'SPD', 'GRUENE', 'DIE_LINKE', 'AFD', 'FDP'];
-        var votes = parties.map(party => data[0][party]);
+        const parties = ['CDU', 'SPD', 'GRUENE', 'DIE_LINKE', 'AFD', 'FDP'];
+        const votes = parties.map(party => data[0][party]);
 
         // Parteifarben entsprechend der deutschen Parteien
-        var partyColors = [
+        const partyColors = [
             '#000000', // CDU (Schwarz)
             '#E3000F', // SPD (Rot)
             '#64A12D', // Die Grünen (Grün)
@@ -20,8 +20,8 @@ xhr.onreadystatechange = function() {
         ];
 
         // Balkendiagramm erstellen
-        var ctx = document.getElementById('myBarChart').getContext('2d');
-        var myBarChart = new Chart(ctx, {
+        const ctx = document.getElementById('myBarChart').getContext('2d');
+        const myBarChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: parties,

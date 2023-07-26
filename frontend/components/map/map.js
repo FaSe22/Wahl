@@ -3,7 +3,7 @@
 // Erstelle eine Karte Baden-Württembergs, auf der die Landkreise zu sehen sind
 function createMap() {
     // Erstelle die Karte 
-    var map = L.map('map', {
+    const map = L.map('map', {
         center: [48.71, 9.10],
         zoom: 8,
         zoomControl: false, // Zoomen der Karte soll nicht möglich sein
@@ -15,7 +15,7 @@ function createMap() {
         .then(response => response.json())
         .then(data => {
             // Filter die geo.json Daten nach Baden-Württemberg (NAME_1 = "Baden-Württemberg")
-            var badenWurttembergData = data.features.filter(feature => feature.properties.NAME_1 === "Baden-Württemberg");
+            const badenWurttembergData = data.features.filter(feature => feature.properties.NAME_1 === "Baden-Württemberg");
 
             // Erstelle ein Leaflet geoJson Layer für die Baden-Württemberg Daten und
             L.geoJSON(badenWurttembergData, {
