@@ -1,4 +1,4 @@
-// AJAX request to get data from getTableData.php
+// Nutze Ajax um Daten von PHP zu empfangen.
 var xhr = new XMLHttpRequest();
 xhr.open("GET", "../../../backend/getTableData.php", true);
 xhr.onreadystatechange = function() {
@@ -9,11 +9,11 @@ xhr.onreadystatechange = function() {
 };
 xhr.send();
 
-// Function to display data in the table
+// Zeige die Daten in einer Table an
 function displayTableData(data) {
     var table = document.getElementById("electionsTable");
 
-    // Iterate over each record and display data in separate rows
+    //  Iteriere über die Daten und füge diese jeweils in einer Zeile hinzu 
     data.forEach(function(rowData) {
         for (var key in rowData) {
             var row = table.insertRow();

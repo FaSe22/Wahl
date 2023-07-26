@@ -28,6 +28,7 @@ function parseCSVFile($filePath)
     return $data;
 }
 
+// TODO: Hier die Connection.php aus dem Backend nutzen
 // Funktion zum Einfügen der Daten in eine SQL-Tabelle
 function insertDataIntoSQL($parsedData, $tableName, $dbConnection)
 {
@@ -41,8 +42,8 @@ function insertDataIntoSQL($parsedData, $tableName, $dbConnection)
             $stmt->execute(array_values($row));
         } catch (PDOException $e) {
             echo "Fehler: " . $e->getMessage() . "\n";
-            print_r($row); // Gib die problematische Zeile zur Fehlerbehebung aus
-            die(); // Beende die Ausführung, um das Problem zu untersuchen
+            print_r($row); // Nur zum Debuggen. 
+            die(); 
         }
     }
 }

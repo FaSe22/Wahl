@@ -22,11 +22,9 @@ header h1 {
     display: flex;
 }
 
-
-
 nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*Ich will die untereinander in der Sidebar*/
     gap: 20px;
     background-color: #f0f0f0;
     padding: 10px;
@@ -46,7 +44,7 @@ nav a:hover {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /*??*/
     grid-gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -54,15 +52,15 @@ main {
 }
 
 .card {
-    background-color: #fffdf0; /* Lighter yellow color for cards */
+    background-color: #fffdf0; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out; /*damit das Hochgleiten der Card sanft ist*/
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px); /*Gleite hoch on hover*/
 }
 
 .chart-container {
