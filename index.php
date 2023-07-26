@@ -55,5 +55,4 @@
     require_once 'backend/Connection.php';
     $conn = (new Connection())->getConnection();
     insertDataIntoSQL($parsedData, 'elections', $conn);
-?>
 

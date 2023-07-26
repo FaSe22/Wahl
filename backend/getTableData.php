@@ -14,5 +14,4 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Die Daten in das JSON-Format konvertieren und ausgeben
 echo json_encode($data);
-?>
 
