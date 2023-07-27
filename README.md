@@ -1,5 +1,7 @@
 # Wahl
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=FaSe22_Wahl)
+
 Demo einer Wahlapp
 
 ## Beschreibung
