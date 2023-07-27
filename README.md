@@ -49,6 +49,8 @@ npm install
 composer install
 ```
 
+Das create Table Statement aus Data ausführen
+
 ### Starten des Projekts mit
 php -S localhost:8000
 
