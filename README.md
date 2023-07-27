@@ -41,6 +41,14 @@ Dabei werden die Daten in Echtzeit aktualisiert, wenn ein bestimmter Land- oder 
 ### Voraussetzungen:
 SQL, PHP
 
+```
+npm install
+```
+
+```
+composer install
+```
+
 ### Starten des Projekts mit
 php -S localhost:8000
 
