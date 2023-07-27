@@ -29,7 +29,6 @@
         return $data;
     }
     
-    // TODO: Hier die Connection.php aus dem Backend nutzen
     // Funktion zum Einfügen der Daten in eine SQL-Tabelle
     function insertDataIntoSQL($parsedData, $tableName, $dbConnection): void
     {
